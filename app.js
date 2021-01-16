@@ -4,11 +4,65 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
+const { ManagerQuestions,
+  EngineerQuestions,
+  InternQuestions } = require('./lib/questions');
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+
+let _managers = [];
+let _interns = [];
+let _engineers = [];
+
+const managers = () => {
+  inquirer
+  .prompt(ManagerQuestions)
+  .then((answers) => {
+    _managers.push(answers);
+    console.log(`The managers array of object(s) : ${JSON.stringify(_managers)}`); // This is for testing to make sure I am getting workable object.
+    enginners();
+  });
+}
+
+const enginners = () => {
+  inquirer
+  .prompt(EngineerQuestions)
+  .then((answers) => {
+    _engineers.push(answers);
+    if (answers.askAgain) {
+      ask();
+    } else {
+      console.log(`The engineer array of object(s) : ${JSON.stringify(_engineers)}`); // This is for testing to make sure I am getting workable object.
+      interns();
+    }
+  });
+}
+
+const interns = () => {
+  inquirer
+  .prompt(InternQuestions)
+  .then((answers) => {
+    _interns.push(answers);
+    if (answers.askAgain) {
+      ask();
+    } else {
+      console.log(`The intern array of object(s) : ${JSON.stringify(_interns)}`); // This is for testing to make sure I am getting workable object.
+    }
+  });
+}
+
+function init() {
+  /* Start by asking about the managers
+
+  This may change later. For now I'm just testing some things.
+  */
+  managers();
+}
+
+init();
 
 
 // Write code to use inquirer to gather information about the development team members,
