@@ -4,66 +4,56 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
-const { ManagerQuestions,
-  EngineerQuestions,
-  InternQuestions } = require('./lib/questions');
+const { Questions } = require('./lib/questions');
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-let _managers = [];
-let _interns = [];
-let _engineers = [];
+let employees = [];
 
-const managers = () => {
+const addEmployee = () => {
   inquirer
-  .prompt(ManagerQuestions)
+  .prompt(Questions)
   .then((answers) => {
-    _managers.push(answers);
-    console.log(`The managers array of object(s) : ${JSON.stringify(_managers)}`); // This is for testing to make sure I am getting workable object.
-    enginners();
-  });
-}
+    // Check the employee type
+    switch (answers.title) {
+      // Constuct the class for that type (Manager, Eng, Intern)
+      // Add constructed employee class to team array
+      case 'Manager':
+        
+        break;
+    
+      case 'Engineer':
+        
+        break;
+    
+      case 'Intern':
+        
+        break;
+    }
 
-const enginners = () => {
-  inquirer
-  .prompt(EngineerQuestions)
-  .then((answers) => {
-    _engineers.push(answers);
-    if (answers.askAgain) {
-      ask();
+    // Check to see the value of the 'add another employee question'
+    // If 'yes', then run the questions again.
+
+    if (answers.askAgain === true) {
+      addEmployee();
     } else {
-      console.log(`The engineer array of object(s) : ${JSON.stringify(_engineers)}`); // This is for testing to make sure I am getting workable object.
-      interns();
+      renderOutput();
     }
   });
 }
 
-const interns = () => {
-  inquirer
-  .prompt(InternQuestions)
-  .then((answers) => {
-    _interns.push(answers);
-    if (answers.askAgain) {
-      ask();
-    } else {
-      console.log(`The intern array of object(s) : ${JSON.stringify(_interns)}`); // This is for testing to make sure I am getting workable object.
-    }
-  });
+const renderOutput = () => {
+  // Code to render the output should go here.
 }
 
 function init() {
-  /* Start by asking about the managers
-
-  This may change later. For now I'm just testing some things.
-  */
-  managers();
+  addEmployee();
 }
 
 init();
-
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
