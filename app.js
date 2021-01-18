@@ -40,8 +40,23 @@ const addEmployee = () => {
     if (answers.askAgain === true) {
       addEmployee();
     } else {
-      console.log(employees)
       renderOutput();
+    }
+  });
+}
+
+// Created an Overwrite function.
+// Did this as a self Bonus!
+const overwrite = () => {
+  const roster = render(employees);
+  inquirer
+  .prompt(Overwrite)
+  .then((answers) => {
+    if (answers.overwrite === true) {
+      fs.writeFile(outputPath, roster, (err) =>
+      err ? console.log(err) : console.log('You did it!'));
+    } else {
+      console.log("No changes made.");
     }
   });
 }
