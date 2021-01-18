@@ -22,15 +22,15 @@ const addEmployee = () => {
       // Constuct the class for that type (Manager, Eng, Intern)
       // Add constructed employee class to team array
       case 'Manager':
-        
+        employees.push(new Manager(answers.name, answers.id, answers.email, answers.officeNumber));
         break;
     
       case 'Engineer':
-        
+        employees.push(new Engineer(answers.name, answers.id, answers.email, answers.github));
         break;
     
       case 'Intern':
-        
+        employees.push(new Intern(answers.name, answers.id, answers.email, answers.school));
         break;
     }
 
@@ -45,8 +45,33 @@ const addEmployee = () => {
   });
 }
 
+// Created an Overwrite function.
+// Did this as a self Bonus!
+const overwrite = () => {
+  const roster = render(employees);
+  inquirer
+  .prompt(Overwrite)
+  .then((answers) => {
+    if (answers.overwrite === true) {
+      fs.writeFile(outputPath, roster, (err) =>
+      err ? console.log(err) : console.log('You did it!'));
+    } else {
+      console.log("No changes made.");
+    }
+  });
+}
+
 const renderOutput = () => {
-  // Code to render the output should go here.
+  const roster = render(employees);
+  if (fs.existsSync(outputPath)) {
+    overwrite();
+  } else {
+    fs.mkdir('output', (err) => {
+      if (err) throw err;
+      fs.writeFile(outputPath, roster, (error) =>
+      err ? console.log(error) : console.log('You did it!'));
+    })
+  }
 }
 
 function init() {
