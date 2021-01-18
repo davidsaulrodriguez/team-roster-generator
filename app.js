@@ -22,7 +22,8 @@ const addEmployee = () => {
       // Constuct the class for that type (Manager, Eng, Intern)
       // Add constructed employee class to team array
       case 'Manager':
-        
+        const newManager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
+        employees.push(newManager);
         break;
     
       case 'Engineer':
