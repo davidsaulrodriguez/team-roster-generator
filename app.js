@@ -68,8 +68,8 @@ const renderOutput = () => {
   } else {
     fs.mkdir('output', (err) => {
       if (err) throw err;
-      fs.writeFile(outputPath, roster, (err) =>
-      err ? console.log(err) : console.log('You did it!'));
+      fs.writeFile(outputPath, roster, (error) =>
+      err ? console.log(error) : console.log('You did it!'));
     })
   }
 }
