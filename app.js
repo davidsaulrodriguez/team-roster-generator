@@ -62,7 +62,16 @@ const overwrite = () => {
 }
 
 const renderOutput = () => {
-  // Code to render the output should go here.
+  const roster = render(employees);
+  if (fs.existsSync(outputPath)) {
+    overwrite();
+  } else {
+    fs.mkdir('output', (err) => {
+      if (err) throw err;
+      fs.writeFile(outputPath, roster, (err) =>
+      err ? console.log(err) : console.log('You did it!'));
+    })
+  }
 }
 
 function init() {
