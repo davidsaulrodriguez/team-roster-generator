@@ -42,7 +42,7 @@ npm run start
 
 Contributions are more than welcome! Please be sure to checkout:
 
-- [CONTRIBUTING.md][contrib]
+- [CONTRIBUTING][contrib]
 - [CODE OF CONDUCT][cod]
 
 ## Testing
