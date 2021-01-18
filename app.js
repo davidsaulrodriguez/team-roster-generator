@@ -22,18 +22,15 @@ const addEmployee = () => {
       // Constuct the class for that type (Manager, Eng, Intern)
       // Add constructed employee class to team array
       case 'Manager':
-        const newManager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
-        employees.push(newManager);
+        employees.push(new Manager(answers.name, answers.id, answers.email, answers.officeNumber));
         break;
     
       case 'Engineer':
-        const newEngineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
-        employees.push(newEngineer);
+        employees.push(new Engineer(answers.name, answers.id, answers.email, answers.github));
         break;
     
       case 'Intern':
-        const newIntern = new Intern(answers.name, answers.id, answers.email, answers.school);
-        employees.push(newIntern);
+        employees.push(new Intern(answers.name, answers.id, answers.email, answers.school));
         break;
     }
 
@@ -43,6 +40,7 @@ const addEmployee = () => {
     if (answers.askAgain === true) {
       addEmployee();
     } else {
+      console.log(employees)
       renderOutput();
     }
   });
