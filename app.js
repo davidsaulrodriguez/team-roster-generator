@@ -54,9 +54,9 @@ const overwrite = () => {
   .then((answers) => {
     if (answers.overwrite === true) {
       fs.writeFile(outputPath, roster, (err) =>
-      err ? console.log(err) : console.log('You did it!'));
+      err ? console.log(err) : console.log('Overwrite Successful! - Your NEW team.html file has been created!'));
     } else {
-      console.log("No changes made.");
+      console.log("No changes made. Your team.html file has not been touched.");
     }
   });
 }
@@ -69,7 +69,7 @@ const renderOutput = () => {
     fs.mkdir('output', (err) => {
       if (err) throw err;
       fs.writeFile(outputPath, roster, (error) =>
-      err ? console.log(error) : console.log('You did it!'));
+      err ? console.log(error) : console.log('Your team.html file has been successfully created!'));
     })
   }
 }
