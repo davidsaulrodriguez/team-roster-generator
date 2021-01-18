@@ -32,7 +32,8 @@ const addEmployee = () => {
         break;
     
       case 'Intern':
-        
+        const newIntern = new Intern(answers.name, answers.id, answers.email, answers.school);
+        employees.push(newIntern);
         break;
     }
 
