@@ -27,7 +27,8 @@ const addEmployee = () => {
         break;
     
       case 'Engineer':
-        
+        const newEngineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
+        employees.push(newEngineer);
         break;
     
       case 'Intern':
