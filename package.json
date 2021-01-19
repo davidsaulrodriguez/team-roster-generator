@@ -1,6 +1,6 @@
 {
   "name": "team-roster-generator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "OOP and testing for week 10 homework",
   "main": "app.js",
   "directories": {
