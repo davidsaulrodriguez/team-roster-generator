@@ -1,4 +1,9 @@
 # Team Roster Generator
+[![GitHub issues](https://img.shields.io/github/issues/davidsaulrodriguez/team-roster-generator)](https://github.com/davidsaulrodriguez/team-roster-generator/issues)
+[![GitHub forks](https://img.shields.io/github/forks/davidsaulrodriguez/team-roster-generator)](https://github.com/davidsaulrodriguez/team-roster-generator/network)
+[![GitHub stars](https://img.shields.io/github/stars/davidsaulrodriguez/team-roster-generator)](https://github.com/davidsaulrodriguez/team-roster-generator/stargazers)
+[![GitHub license](https://img.shields.io/github/license/davidsaulrodriguez/team-roster-generator)](https://github.com/davidsaulrodriguez/team-roster-generator/blob/main/LICENSE)
+![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/davidsaulrodriguez/team-roster-generator/inquirer)
 
 A nodejs based command line interface for generating html files with the info of your team members / co-workers.
 
